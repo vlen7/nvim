@@ -61,6 +61,9 @@ cmp.setup {
     snippet = {
         expand = function(args) vim.fn['vsnip#anonymous'](args.body) end,
     },
+    mapping = {
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
     -- 配置补全内容来源
     sources = cmp.config.sources {
         -- 支持从打开的文件中补全内容

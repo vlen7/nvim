@@ -49,3 +49,9 @@
 [submodule "pack/vendor/start/mru"]
 	path = pack/vendor/start/mru
 	url = https://github.com/epii1/mru.vim
+[submodule "pack/vendor/start/vim-snippets"]
+	path = pack/vendor/start/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "pack/vendor/start/fugitive"]
+	path = pack/vendor/start/fugitive
+	url = git@github.com:tpope/vim-fugitive.git
