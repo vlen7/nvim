@@ -86,3 +86,23 @@ require'lspconfig'.gopls.setup {
         debounce_text_changes = 150,
     },
 }
+
+-- 获取 git path
+gitRootPath = vim.api.nvim_eval("system('git rev-parse --show-toplevel 2> /dev/null')[:-2]")
+local config = require('go.config')
+config.options.test_env = {
+	CONF_PATH = gitRootPath,
+	MYSQL_ROOT_PASSWORD = 'root'
+}
+
+-- null-ls
+require("null-ls").setup({
+    sources = {
+        -- require("null-ls").builtins.formatting.stylua,
+        -- require("null-ls").builtins.diagnostics.eslint,
+        require("null-ls").builtins.completion.spell,
+	require("null-ls").builtins.diagnostics.revive.with({
+			args = {"-config", vim.fn.expand("~/.config/nvim/revive.toml"),"-formatter", "json", "./..."},
+	}),
+    },
+})

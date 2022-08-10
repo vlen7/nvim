@@ -1,5 +1,8 @@
 language en_US
 
+echo ">^.^<"
+
+
 set nu
 set termguicolors
 set colorcolumn=80
@@ -13,6 +16,7 @@ set foldlevel=99
 set noswapfile
 set ignorecase
 set smartcase
+
 
 color PaperColor
 let g:PaperColor_Theme_Options = {
@@ -78,3 +82,36 @@ xmap        S   <Plug>(vsnip-cut-text)
 let g:vsnip_filetypes = {}
 let g:vsnip_filetypes.javascriptreact = ['javascript']
 let g:vsnip_filetypes.typescriptreact = ['typescript']
+
+" air-line
+let g:airline#extensions#tabline#enabled = 1
+
+" colorscheme Terafox
+"
+
+" GO TEST
+command! GoTest lua require('go.test').test()
+command! GoTestAll lua require('go.test').test_all()
+command! GoTestFunc lua require('go.test').test_func()
+command! GoTestFile lua require('go.test').test_file()
+command! -nargs=? -complete=command GoToTest lua require('go.test').test_open(<f-args>)
+
+" popup exit with only q
+" function! OmniPopup(action)
+"     echo a:action
+"     echo pumvisible()
+"     if pumvisible()
+"         echo a:action
+"         if a:action == 'q'
+"             return ":q"
+"         elseif a:action == 'k'
+"             return "\<C-P>"
+"         endif
+"     endif
+"     return a:action
+" endfunction
+" 
+" nnoremap q :call OmniPopup('q')<cr>
+"
+
+
