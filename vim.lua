@@ -67,7 +67,7 @@ cmp.setup {
     -- 配置补全内容来源
     sources = cmp.config.sources {
         -- 支持从打开的文件中补全内容
-        { name = 'buffer', opts = { get_bufnrs = vim.api.nvim_list_bufs } },
+        { name = 'buffer', option = { get_bufnrs = vim.api.nvim_list_bufs } },
 	-- 支持从 lsp 服务补全
         { name = 'nvim_lsp' },
 	-- 支持补全文件路径，可以输入 / 或者 ~ 体验
@@ -78,7 +78,7 @@ cmp.setup {
 -- 将 cmp-lsp 跟 lsp 服务关联起来
 -- 需要更新一上之前的 gopls 配置
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
+capabilities = require'cmp_nvim_lsp'.default_capabilities(capabilities)
 require'lspconfig'.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -96,13 +96,13 @@ config.options.test_env = {
 }
 
 -- null-ls
-require("null-ls").setup({
-    sources = {
-        -- require("null-ls").builtins.formatting.stylua,
-        -- require("null-ls").builtins.diagnostics.eslint,
-        require("null-ls").builtins.completion.spell,
-	require("null-ls").builtins.diagnostics.revive.with({
-			args = {"-config", vim.fn.expand("~/.config/nvim/revive.toml"),"-formatter", "json", "./..."},
-	}),
-    },
-})
+-- require("null-ls").setup({
+--     sources = {
+--         -- require("null-ls").builtins.formatting.stylua,
+--         -- require("null-ls").builtins.diagnostics.eslint,
+--         require("null-ls").builtins.completion.spell,
+-- 	require("null-ls").builtins.diagnostics.revive.with({
+-- 			args = {"-config", vim.fn.expand("~/.config/nvim/revive.toml"),"-formatter", "json", "./..."},
+-- 	}),
+--     },
+-- })
