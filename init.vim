@@ -27,8 +27,8 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 
-nnoremap <leader>e :NERDTreeToggle<cr>
-nnoremap <leader>f :NERDTreeFind<cr>
+nnoremap <silent> <leader>e :NERDTreeToggle<cr>
+nnoremap <silent> <leader>f :NERDTreeFind<cr>
 
 nnoremap <c-p> :call fzf#Open()<cr>
 
