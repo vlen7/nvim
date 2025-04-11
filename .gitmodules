@@ -67,3 +67,6 @@
 [submodule "pack/vendor/start/cmp-nvim-lsp"]
 	path = pack/vendor/start/cmp-nvim-lsp
 	url = git@github.com:hrsh7th/cmp-nvim-lsp.git
+[submodule "pack/vendor/start/vim-markdown"]
+	path = pack/vendor/start/vim-markdown
+	url = git@github.com:preservim/vim-markdown.git
